@@ -1,6 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+
+
+let activeStyle = {
+    textDecoration: "underline",
+    color: '#7c3aed'
+
+};
 
 const Navbar = () => {
     return (
@@ -19,25 +26,55 @@ const Navbar = () => {
                     <div className="flex-1 md:pl-5 mx-2">
                         <Link href="/">
                             <div className="relative top-[]">
-                                <p className='font-mono font-extrabold text-base text-violet-800  md:text-2xl'><i className="fa-solid fa-earth-asia"></i> Limitless-Tourism</p>
+                                <p className='font-mono font-extrabold text-base text-violet-600  md:text-2xl'><i className="fa-solid fa-earth-asia"></i> Limitless-Tourism</p>
                             </div>
                         </Link>
                     </div>
 
                     <div className="hidden mx-2 lg:flex">
                         <div className="flex items-center">
-                            <Link className="btn font-bold hover:bg-rose-100   btn-ghost text-gray-800 rounded-btn mx-2" to='/'>
-                                HOME
+
+                            <h1 className="btn font-bold hover:bg-rose-100   btn-ghost text-gray-800 rounded-btn mx-2">
+                                <NavLink to="/home"
+                                    style={({ isActive }) =>
+                                        isActive ? activeStyle : undefined
+                                    }
+                                >
+                                    <button className="py-3">HOME</button>
+                                </NavLink>
+                            </h1>
+                            <h1 className="btn font-bold hover:bg-rose-100   btn-ghost text-gray-800 rounded-btn mx-2">
+                                <NavLink to="/packages"
+                                    style={({ isActive }) =>
+                                        isActive ? activeStyle : undefined
+                                    }
+                                >
+                                    <button className="py-3">PACKAGES</button>
+                                </NavLink>
+                            </h1>
+                            <h1 className="btn font-bold hover:bg-rose-100   btn-ghost text-gray-800 rounded-btn mx-2">
+                                <NavLink to="/events"
+                                    style={({ isActive }) =>
+                                        isActive ? activeStyle : undefined
+                                    }
+                                >
+                                    <button className="py-3">EVENTS</button>
+                                </NavLink>
+                            </h1>
+                            <h1 className="btn font-bold hover:bg-rose-100   btn-ghost text-gray-800 rounded-btn mx-2">
+                                <NavLink to="/contact"
+                                    style={({ isActive }) =>
+                                        isActive ? activeStyle : undefined
+                                    }
+                                >
+                                    <button className="py-3">CONTACT</button>
+                                </NavLink>
+                            </h1>
+
+                            <Link className="btn font-bold hover:bg-rose-100 btn-ghost rounded-btn bg-violet-600 text-white hover:text-black mr-10" to="/contact">
+                                Log in
                             </Link>
-                            <Link className="btn font-bold hover:bg-rose-100 btn-ghost rounded-btn mx-3" to="/packages">
-                                PACKAGES
-                            </Link>
-                            <Link className="btn font-bold hover:bg-rose-100  btn-ghost rounded-btn mx-3" to="/events">
-                                EVENTS
-                            </Link>
-                            <Link className="btn font-bold hover:bg-rose-100 btn-ghost rounded-btn mx-3" to="/contact">
-                                CONTACT
-                            </Link>
+
 
                             {/* {!user.isSignedIn &&
                                 <Link passHref href="/register">
@@ -121,30 +158,28 @@ const Navbar = () => {
                                 </Link>
                             </li>
                             <li className="my-3">
-                                <Link className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3" to="/courses">
-                                    COURSES
+                                <Link className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3" to="/packages">
+                                    PACKAGES
                                 </Link>
                             </li>
                             <li>
-                                <Link className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3" to="/forum">
-                                    FORUM
+                                <Link className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3" to="/events">
+                                    EVENTS
                                 </Link>
                             </li>
                             <li>
-                                <Link className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3" to="/code-editor">
-                                    PLAYGROUND
+                                <Link className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3" to="/contact">
+                                    CONTACT
                                 </Link>
                             </li>
-                            {/* <li>
-                                <Link href="/blogs">
-                                    <a className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3">BLOGS </a>
+
+                            <li>
+                                <Link className="mx-auto btn font-bold hover:bg-rose-100 btn-ghost rounded-btn bg-violet-600 text-white hover:text-black my-3" to="/contact">
+                                    Log in
                                 </Link>
-                            </li> */}
-                            {/* <li>
-                                <Link href="/contact">
-                                    <a className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3">CONTACT </a>
-                                </Link>
-                            </li>  */}
+
+                            </li>
+
                             {/* {!user.isSignedIn &&
                                 <li className="text-white mt-3">
                                     <Link passHref href="/register">
