@@ -84,6 +84,7 @@ const Navbar = () => {
 
                         </div>
                     </div>
+                    
                     {/* {user.isSignedIn &&
                         <div className="flex-none dropdown dropdown-end mx-1 sm:mx-2 my-auto lg:pr-10">
                             <label tabIndex="0" className="btn btn-ghost btn-circle avatar hover:border-purple-800">
