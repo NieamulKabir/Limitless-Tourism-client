@@ -59,56 +59,33 @@ const Events = () => {
 
   return (
     <div className='w-[85%] font-serif mx-auto'>
-      <Box sx={{ py: 12 }}>
-
-        <Box className="text-center mx-auto mb-5">
-          <Typography >
-            <h1 className='text-violet-500 font-bold text-4xl '>Up Coming Events</h1>
-          </Typography>
-        </Box>
 
 
-        <div className="mx-auto font-serif">
 
-          <Slider {...settings}>
-            {event.map((e, index) => (
-              <div key={index}>
 
-                <Card className="border-0 drop-shadow-2xl  my-10 p-3 text-center mx-4">
-                  <CardMedia
-                    component="img"
-                    sx={{ width: "200px", height: "200px", borderRadius: "10%", margin: "0 auto" }}
-                    image={e.img}
-                    alt=" "
-                  />
+      <p className='text-violet-500 font-bold text-4xl mt-10'>Up Coming Events</p>
 
-                  <Box>
-                    <Typography>
-                      <h1 className='py-2'><small className="text-sm md:text-lg">"{e?.title}"</small></h1>
-                    </Typography>
+      <Slider {...settings}>
+        {event.map((e, index) => (
+          <div key={index}>
 
-                    <Typography className="text-start">
-                      <h1 className='text-center'>{e?.duration}</h1>
-                    </Typography>
-
-                    <Typography className="">
-
-                      <small>Date: {e?.ammount}</small>
-
-                    </Typography>
-                  </Box>
-
-                </Card>
-
+            <div className="card mx-2 h-[350px] md:h-full bg-base-100 shadow-xl my-6">
+              <figure className="px-10 pt-10">
+                <img src={e.img} alt="Shoes" className="rounded-xl" />
+              </figure>
+              <div className="card-body items-center text-center">
+                <h2 className="card-title">{e.title}</h2>
+                <p>{e.duration}</p>
+                <p><span>Details</span> : {e?.ammount}</p>
               </div>
-            ))}
+            </div>
+
+          </div>
+        ))}
 
 
-          </Slider>
+      </Slider>
 
-        </div>
-
-      </Box>
     </div>
 
   );
