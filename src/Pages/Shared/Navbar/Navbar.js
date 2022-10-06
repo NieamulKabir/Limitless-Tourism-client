@@ -52,15 +52,7 @@ const Navbar = () => {
                                     <button className="py-3">PACKAGES</button>
                                 </NavLink>
                             </h1>
-                            <h1 className="btn font-bold hover:bg-rose-100   btn-ghost text-gray-800 rounded-btn mx-2">
-                                <NavLink to="/events"
-                                    style={({ isActive }) =>
-                                        isActive ? activeStyle : undefined
-                                    }
-                                >
-                                    <button className="py-3">EVENTS</button>
-                                </NavLink>
-                            </h1>
+
                             <h1 className="btn font-bold hover:bg-rose-100   btn-ghost text-gray-800 rounded-btn mx-2">
                                 <NavLink to="/contact"
                                     style={({ isActive }) =>
@@ -163,11 +155,7 @@ const Navbar = () => {
                                     PACKAGES
                                 </Link>
                             </li>
-                            <li>
-                                <Link className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3" to="/events">
-                                    EVENTS
-                                </Link>
-                            </li>
+                         
                             <li>
                                 <Link className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3" to="/contact">
                                     CONTACT
