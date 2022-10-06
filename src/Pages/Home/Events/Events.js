@@ -2,9 +2,6 @@ import React, { useState, useEffect } from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { Card, CardMedia, Typography } from "@mui/material";
-import { Box } from "@mui/system";
-// import Rating from "react-rating";
 
 const Events = () => {
   const [event, setEvent] = useState([])

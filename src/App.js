@@ -5,7 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import Navbar from './Pages/Shared/Navbar/Navbar';
 import Home from './Pages/Home/Home';
 import Packages from './Pages/Packages/Packages';
-import Event from './Pages/Event/Event';
+
 import Contact from './Pages/Contact/Contact';
 import Footer from './Pages/Shared/Footer/Footer';
 
@@ -19,7 +19,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/packages" element={<Packages />} />
-        <Route path="/events" element={<Event />} />
+       
         <Route path="/contact" element={<Contact />} />
 
       </Routes>
