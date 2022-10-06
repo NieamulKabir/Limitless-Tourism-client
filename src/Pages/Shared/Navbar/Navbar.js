@@ -1,6 +1,12 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, NavLink } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
+// import { ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import auth from '../../../firebase.init';
+
 
 
 let activeStyle = {
@@ -10,6 +16,14 @@ let activeStyle = {
 };
 
 const Navbar = () => {
+
+    const [user] = useAuthState(auth);
+
+    const handleSignOut = () => {
+        signOut(auth)
+
+    }
+
     return (
         <>
             <nav className="sticky top-0 w-full z-50 text-gray-800">
@@ -63,81 +77,51 @@ const Navbar = () => {
                                 </NavLink>
                             </h1>
 
-                            <Link className="btn font-bold hover:bg-rose-100 btn-ghost rounded-btn bg-violet-600 text-white hover:text-black mr-10" to="/contact">
-                                Log in
-                            </Link>
 
 
-                            {/* {!user.isSignedIn &&
-                                <Link passHref href="/register">
-                                    <button className="btn border-0 px-7 py-2 rounded bg-rose-500 text-white dark:hover:bg-slate-600 transition duration-500 mx-3">FREE TRIAL</button>
-                                </Link>
-                            } */}
+                            <h1>
+                                {
+                                    user?.displayName &&
+                                    <div className='flex justify-center items-center'>
+                                        <h3 className="text-lg font-semibold pr-2 ml-0 text-violet-700">Hi,{user?.displayName}  </h3>
+                                        <img className="rounded-3xl w-10" src={user?.photoURL} alt="" />
+                                    </div>
+
+                                }
+                            </h1>
+
+                            <h1>
+                                {
+                                    user ?
+                                        <button
+                                            onClick={async () => {
+                                                await handleSignOut();
+                                                toast("Successfully Sign Out");
+                                            }
+
+                                            }>
+
+                                            <div className='ml-5'>
+                                                <Link to='/register' className="bg-violet-600 w-36 px-4 py-[12px] font-semibold text-white rounded-xl"><span className='text-lg'>SIGN OUT</span></Link>
+                                            </div>
+                                        </button>
+
+                                        :
+                                        <div className='ml-24 md:ml-80  lg:ml-0 lg:mr-6'>
+                                            <Link to='/login' className="bg-violet-600 px-4 py-[12px] font-semibold text-white rounded-xl w-36">
+                                                LOG IN
+                                            </Link>
+                                        </div>
+                                }
+
+                            </h1>
+
+
 
                         </div>
                     </div>
-                    
-                    {/* {user.isSignedIn &&
-                        <div className="flex-none dropdown dropdown-end mx-1 sm:mx-2 my-auto lg:pr-10">
-                            <label tabIndex="0" className="btn btn-ghost btn-circle avatar hover:border-purple-800">
-                                <div className="rounded-full">
-                                    {
-                                        user.photo ? <Image src={user.photo} alt="User Profile" width="90px" height="90px" draggable="false" /> :
-                                            <div className="flex-none my-auto pr-2 sm:mr-3 lg:mr-12">
-                                                <label tabIndex="0" className="btn btn-ghost btn-circle avatar hover:bg-transparent">
-                                                    <div className="rounded-full">
-                                                        <FaUserCircle className="text-4xl" />
-                                                    </div>
-                                                </label>
-                                            </div>
-                                    }
-                                </div>
-                            </label>
-                            <ul tabIndex="0" className="mt-3 p-2 relative top-10 shadow menu menu-compact dropdown-content bg-slate-100 dark:bg-slate-600 rounded-box w-52">
-                                <li>
-                                    <Link href={`/profile/${user.email}`}>
-                                        <a className=" hover:bg-rose-500 hover:text-white">
-                                            Profile
-                                        </a>
-                                    </Link>
-                                </li>
-                                {
-                                    thisUser !== undefined ? thisUser.role === 'admin' && <li>
-                                        <Link href="/dashboard">
-                                            <a className=" hover:bg-rose-500 hover:text-white">
-                                                Dashboard
-                                                <span className="ml-2 badge">New</span>
-                                            </a>
-                                        </Link>
-                                    </li> : ''
-                                }
-                                <li>
-                                    <Link href={`/my-course/${user.email}`}>
-                                        <a className=" hover:bg-rose-500 hover:text-white">My Course</a>
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/vote">
-                                        <a className=" hover:bg-rose-500 hover:text-white">
-                                            Vote
-                                        </a>
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/canvas">
-                                        <a className=" hover:bg-rose-500 hover:text-white">
-                                            Canvas
-                                        </a>
-                                    </Link>
-                                </li>
-                                <li onClick={logout}>
-                                    <a className=" hover:bg-rose-500 hover:text-white">
-                                        Logout
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    } */}
+
+                    {/* tablate ans phone  */}
                     <div className="flex-none lg:hidden dropdown dropdown-left">
                         <button tabIndex="0" className="m-1 btn hover:bg-gray-800 btn-square hover:text-white btn-ghost">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current">
@@ -155,35 +139,57 @@ const Navbar = () => {
                                     PACKAGES
                                 </Link>
                             </li>
-                         
+
                             <li>
                                 <Link className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3" to="/contact">
                                     CONTACT
                                 </Link>
                             </li>
 
+
+                            <li className='py-2'>
+                                {
+                                    user?.displayName &&
+                                    <div className='flex justify-center items-center'>
+                                        <h3 className="text-sm font-semibold pr-2 ml-0 text-violet-700">Hi,{user?.displayName}  </h3>
+                                        <img className="rounded-3xl w-10" src={user?.photoURL} alt="" />
+                                    </div>
+
+                                }
+                            </li>
+
                             <li>
-                                <Link className="mx-auto btn font-bold hover:bg-rose-100 btn-ghost rounded-btn bg-violet-600 text-white hover:text-black my-3" to="/contact">
-                                    Log in
-                                </Link>
+                                {
+                                    user ?
+                                        <button
+                                            onClick={async () => {
+                                                await handleSignOut();
+                                                toast("Successfully Sign Out");
+                                            }
+
+                                            }>
+
+                                            <div className='mx-auto'>
+
+                                                <Link to='/register' className="bg-violet-600 md:w-36 px-4 py-[12px] font-semibold text-white rounded-xl"><span className='text-xs md:text-lg'>SIGN OUT</span></Link>
+
+                                            </div>
+                                        </button>
+
+
+                                        :
+                                        <div className='mx-auto'>
+                                            <Link to='/login' className="bg-violet-600 px-4 py-[12px] font-semibold text-white rounded-xl ">LOG IN</Link>
+                                        </div>
+                                }
 
                             </li>
 
-                            {/* {!user.isSignedIn &&
-                                <li className="text-white mt-3">
-                                    <Link passHref href="/register">
-                                        <button className="btn border-0 px-7 py-2 rounded-btn bg-rose-500 text-white transition duration-500 mx-3">FREE TRIAL</button>
-                                    </Link>
-                                </li>
-                            } */}
                         </ul>
                     </div>
                 </div>
             </nav>
-            <ToastContainer
-                position="top-center"
-                reverseOrder={false}
-            />
+            <ToastContainer></ToastContainer>
         </>
 
     );

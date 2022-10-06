@@ -27,8 +27,8 @@ const HomePackages = () => {
 
                                 </h2>
 
-                                <NavLink
-                                ><button className="px-6 py-3 mt-5 mb-8 bg-violet-400 custom-bg-font rounded-lg text-white hover:text-black hover:bg-white transition duration-300">VIEW DETAILS</button></NavLink>
+                                <NavLink to={`/packageDetails/${service?._id}`}
+                                ><button className="px-6 py-3 mt-5 mb-8 bg-violet-600 custom-bg-font rounded-lg text-white hover:text-black hover:bg-white transition duration-300">VIEW DETAILS</button></NavLink>
                             </div>
                         </div>
 

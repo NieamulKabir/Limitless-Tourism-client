@@ -8,6 +8,9 @@ import Packages from './Pages/Packages/Packages';
 
 import Contact from './Pages/Contact/Contact';
 import Footer from './Pages/Shared/Footer/Footer';
+import PackageDetails from './Pages/PackageDetails/PackageDetails';
+import Login from './Pages/Login/Login/Login';
+import Register from './Pages/Login/Register/Register';
 
 
 function App() {
@@ -19,8 +22,11 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/packages" element={<Packages />} />
-       
+        <Route path="/packageDetails/:packageId" element={<PackageDetails />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/register" element={<Register></Register>}></Route>
+
 
       </Routes>
       <Footer></Footer>
