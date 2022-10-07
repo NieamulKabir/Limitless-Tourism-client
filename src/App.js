@@ -11,6 +11,7 @@ import Footer from './Pages/Shared/Footer/Footer';
 import PackageDetails from './Pages/PackageDetails/PackageDetails';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
+import AddPackage from './Pages/AddPackage/AddPackage';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/packages" element={<Packages />} />
         <Route path="/packageDetails/:packageId" element={<PackageDetails />} />
+        <Route path="/addPackage" element={<AddPackage />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>

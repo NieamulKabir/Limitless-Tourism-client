@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 const HomePackages = () => {
     const [packages, setPackages] = useState([])
     useEffect(() => {
-        fetch(`https://nieamulkabir.github.io/limitless-tourism/service.json`)
+        fetch(`http://localhost:5000/package`)
             .then(res => res.json())
             .then(data => setPackages(data))
     }, [])

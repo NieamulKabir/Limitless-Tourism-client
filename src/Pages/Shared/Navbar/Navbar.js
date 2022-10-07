@@ -66,6 +66,15 @@ const Navbar = () => {
                                     <button className="py-3">PACKAGES</button>
                                 </NavLink>
                             </h1>
+                            <h1 className="btn font-bold hover:bg-rose-100   btn-ghost text-gray-800 rounded-btn mx-2">
+                                <NavLink to="/addPackage"
+                                    style={({ isActive }) =>
+                                        isActive ? activeStyle : undefined
+                                    }
+                                >
+                                    <button className="py-3">ADD-PACKAGE</button>
+                                </NavLink>
+                            </h1>
 
                             <h1 className="btn font-bold hover:bg-rose-100   btn-ghost text-gray-800 rounded-btn mx-2">
                                 <NavLink to="/contact"
@@ -189,7 +198,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </nav>
-            <ToastContainer></ToastContainer>
+            {/* <ToastContainer></ToastContainer> */}
         </>
 
     );
