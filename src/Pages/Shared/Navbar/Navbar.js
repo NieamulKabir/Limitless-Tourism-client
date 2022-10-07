@@ -48,7 +48,7 @@ const Navbar = () => {
                     <div className="hidden mx-2 lg:flex">
                         <div className="flex items-center">
 
-                            <h1 className="btn font-bold hover:bg-rose-100   btn-ghost text-gray-800 rounded-btn mx-2">
+                            <h1 className="btn font-bold hover:bg-rose-100   btn-ghost text-gray-800 rounded-btn mr-2">
                                 <NavLink to="/home"
                                     style={({ isActive }) =>
                                         isActive ? activeStyle : undefined
@@ -57,7 +57,7 @@ const Navbar = () => {
                                     <button className="py-3">HOME</button>
                                 </NavLink>
                             </h1>
-                            <h1 className="btn font-bold hover:bg-rose-100   btn-ghost text-gray-800 rounded-btn mx-2">
+                            <h1 className="btn font-bold hover:bg-rose-100   btn-ghost text-gray-800 rounded-btn mr-2">
                                 <NavLink to="/packages"
                                     style={({ isActive }) =>
                                         isActive ? activeStyle : undefined
@@ -66,7 +66,19 @@ const Navbar = () => {
                                     <button className="py-3">PACKAGES</button>
                                 </NavLink>
                             </h1>
-                            <h1 className="btn font-bold hover:bg-rose-100   btn-ghost text-gray-800 rounded-btn mx-2">
+
+
+                            <h1 className="btn font-bold hover:bg-rose-100   btn-ghost text-gray-800 rounded-btn mr-2">
+                                <NavLink to="/myBooking"
+                                    style={({ isActive }) =>
+                                        isActive ? activeStyle : undefined
+                                    }
+                                >
+                                    <button className="py-3">MY-BOOKING</button>
+                                </NavLink>
+                            </h1>
+
+                            <h1 className="btn font-bold hover:bg-rose-100   btn-ghost text-gray-800 rounded-btn mr-2">
                                 <NavLink to="/addPackage"
                                     style={({ isActive }) =>
                                         isActive ? activeStyle : undefined
@@ -75,8 +87,16 @@ const Navbar = () => {
                                     <button className="py-3">ADD-PACKAGE</button>
                                 </NavLink>
                             </h1>
-
-                            <h1 className="btn font-bold hover:bg-rose-100   btn-ghost text-gray-800 rounded-btn mx-2">
+                            <h1 className="btn font-bold hover:bg-rose-100   btn-ghost text-gray-800 rounded-btn mr-2">
+                                <NavLink to="/manageBookings"
+                                    style={({ isActive }) =>
+                                        isActive ? activeStyle : undefined
+                                    }
+                                >
+                                    <button className="py-3">MANAGE-ALL-BOOKINGS</button>
+                                </NavLink>
+                            </h1>
+                            <h1 className="btn font-bold hover:bg-rose-100   btn-ghost text-gray-800 rounded-btn mr-2">
                                 <NavLink to="/contact"
                                     style={({ isActive }) =>
                                         isActive ? activeStyle : undefined

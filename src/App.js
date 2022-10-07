@@ -12,6 +12,9 @@ import PackageDetails from './Pages/PackageDetails/PackageDetails';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
 import AddPackage from './Pages/AddPackage/AddPackage';
+import Booking from './Pages/Booking/Booking';
+import MyBooking from './Pages/MyBooking/MyBooking';
+import ManageAllBooking from './Pages/ManageAllBooking/ManageAllBooking';
 
 
 function App() {
@@ -25,6 +28,10 @@ function App() {
         <Route path="/packages" element={<Packages />} />
         <Route path="/packageDetails/:packageId" element={<PackageDetails />} />
         <Route path="/addPackage" element={<AddPackage />} />
+        <Route path="/booking/:bookingId" element={<Booking />} />
+        <Route path="/myBooking" element={<MyBooking />} />
+        <Route path="/manageBookings" element={<ManageAllBooking />} />
+
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
