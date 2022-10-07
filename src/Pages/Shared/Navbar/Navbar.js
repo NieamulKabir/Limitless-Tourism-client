@@ -78,24 +78,48 @@ const Navbar = () => {
                                 </NavLink>
                             </h1>
 
-                            <h1 className="btn font-bold hover:bg-rose-100   btn-ghost text-gray-800 rounded-btn mr-2">
-                                <NavLink to="/addPackage"
-                                    style={({ isActive }) =>
-                                        isActive ? activeStyle : undefined
-                                    }
-                                >
-                                    <button className="py-3">ADD-PACKAGE</button>
-                                </NavLink>
+
+
+                            <h1 className="btn font-bold hover:bg-rose-100   btn-ghost text-gray-800 rounded-btn mr-0 pr-0">
+                                <div className="navbar-center">
+                                    <ul className="menu menu-horizontal p-0">
+                                        <li tabIndex={0}>
+                                            <a>
+                                                ADMIN
+                                                <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
+                                            </a>
+                                            <ul className="bg-green-100 mt-4">
+                                                <li className='mx-auto'>
+                                                    <h1 className="btn font-bold hover:bg-rose-100  btn-ghost text-gray-800 rounded-btn mr-2">
+                                                        <NavLink to="/addPackage"
+                                                            style={({ isActive }) =>
+                                                                isActive ? activeStyle : undefined
+                                                            }
+                                                        >
+                                                            <button className="py-3">ADD-PACKAGE</button>
+                                                        </NavLink>
+                                                    </h1>
+                                                </li>
+                                                <li>
+                                                    <h1 className="btn font-bold hover:bg-rose-100   btn-ghost text-gray-800 rounded-btn mr-2">
+                                                        <NavLink to="/manageBookings"
+                                                            style={({ isActive }) =>
+                                                                isActive ? activeStyle : undefined
+                                                            }
+                                                        >
+                                                            <button className="py-3">MANAGE-ALL-BOOKINGS</button>
+                                                        </NavLink>
+                                                    </h1>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                    </ul>
+                                </div>
                             </h1>
-                            <h1 className="btn font-bold hover:bg-rose-100   btn-ghost text-gray-800 rounded-btn mr-2">
-                                <NavLink to="/manageBookings"
-                                    style={({ isActive }) =>
-                                        isActive ? activeStyle : undefined
-                                    }
-                                >
-                                    <button className="py-3">MANAGE-ALL-BOOKINGS</button>
-                                </NavLink>
-                            </h1>
+
+
+
                             <h1 className="btn font-bold hover:bg-rose-100   btn-ghost text-gray-800 rounded-btn mr-2">
                                 <NavLink to="/contact"
                                     style={({ isActive }) =>
@@ -163,11 +187,52 @@ const Navbar = () => {
                                     HOME
                                 </Link>
                             </li>
-                            <li className="my-3">
+                            <li className="mt-3">
                                 <Link className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3" to="/packages">
                                     PACKAGES
                                 </Link>
                             </li>
+
+                            <li className="mt-[-15px] pt-0">
+                                <h1 className="btn  hover:bg-rose-100   btn-ghost text-gray-800 rounded-btn mr-0 pr-0">
+                                    <div className="navbar-center">
+                                        <ul className="menu ">
+                                            <li tabIndex={0}>
+                                                <a>
+                                                    ADMIN
+                                                    <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
+                                                </a>
+                                                <ul className="bg-green-100 ml-[-280px] md:ml-[-350px]">
+                                                    <li className='mx-auto'>
+                                                        <h1 className="btn font-bold hover:bg-rose-100  btn-ghost text-gray-800 rounded-btn">
+                                                            <NavLink to="/addPackage"
+                                                                style={({ isActive }) =>
+                                                                    isActive ? activeStyle : undefined
+                                                                }
+                                                            >
+                                                                <button className="py-3 text-xs md:text-base">ADD-PACKAGE</button>
+                                                            </NavLink>
+                                                        </h1>
+                                                    </li>
+                                                    <li>
+                                                        <h1 className="btn font-bold hover:bg-rose-100   btn-ghost text-gray-800 rounded-btn ">
+                                                            <NavLink to="/manageBookings"
+                                                                style={({ isActive }) =>
+                                                                    isActive ? activeStyle : undefined
+                                                                }
+                                                            >
+                                                                <button className="py-3  text-xs md:text-base">MANAGE-ALL-BOOKINGS</button>
+                                                            </NavLink>
+                                                        </h1>
+                                                    </li>
+                                                </ul>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </h1>
+                            </li>
+
 
                             <li>
                                 <Link className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3" to="/contact">
